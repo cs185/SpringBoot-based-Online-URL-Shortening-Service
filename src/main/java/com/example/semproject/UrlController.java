@@ -40,9 +40,16 @@ public class UrlController {
 //    }
 
     @GetMapping("/register")
-    public ModelAndView showWebPage() {
+    public ModelAndView showRegisterPage() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("register.html");
+        return modelAndView;
+    }
+
+    @GetMapping("/")
+    public ModelAndView showHomePage() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("home.html");
         return modelAndView;
     }
 }
