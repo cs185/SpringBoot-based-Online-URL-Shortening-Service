@@ -1,5 +1,6 @@
 package com.example.semproject;
 
+import com.example.semproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,18 +23,26 @@ public class UrlController {
 
     @GetMapping("/register")
     public ModelAndView showRegisterPage() {
-        return new ModelAndView("register.html");
+        return new ModelAndView("register");
     }
 
-    @GetMapping("/home")
+    @GetMapping("/login")
+    public ModelAndView showLoginPage() {
+        return new ModelAndView("login");
+    }
+
+    @GetMapping("/")
     public ModelAndView showHomePage() {
-        return new ModelAndView("home.html");
+        return new ModelAndView("home");
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestParam String username, @RequestParam String password, @RequestParam String email, @RequestParam boolean isPremium) {
+    public ResponseEntity<String> registerUser(@RequestParam String username, @RequestParam String password, @RequestParam String email) {
         try {
-            userService.insertOrUpdateUser(username, password, email, isPremium);
+            if (userService.checkUser(username)) {
+                return ResponseEntity.status(HttpStatus.CONFLICT).body("username already exist");
+            }
+            userService.insertOrUpdateUser(username, password, email);
             return ResponseEntity.ok("User registered successfully");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Registration failed");
