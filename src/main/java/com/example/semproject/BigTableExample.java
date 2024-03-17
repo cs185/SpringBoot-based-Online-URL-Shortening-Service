@@ -19,7 +19,7 @@ public class BigTableExample {
 
     public static void main(String[] args) throws Exception {
         // Add below Env variable in configuration of Intellij
-        // GOOGLE_APPLICATION_CREDENTIALS=/Users/developer/Downloads/SEM-Project/src/main/resources/static/key.json
+        // GOOGLE_APPLICATION_CREDENTIALS=/Users/DELL/COMP 539/SEM-Project/src/main/resources/rice-comp-539-spring-2022-8a812ce96ddd.json
         String projectId = "rice-comp-539-spring-2022";
         String instanceId = "shared-539";
         String tableId = "kaushal123";
