@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Short URL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="background-image">
+
+
+    <%- include('partials/navbar') %>
+
+    <main class="about-container">
+        <h1>About Us</h1>
+        <div class="team-members">
+           
+
+
+            <% team.forEach(member => { %>
+                <div class="team-member">
+                    <img src="<%= member.image %>" alt="Photo of <%= member.name %>" class="team-member-image">
+                    <h3><%= member.name %></h3>
+                </div>
+            <% }) %>
+        </div>
+    </main>
+    
+</body>
+</html>

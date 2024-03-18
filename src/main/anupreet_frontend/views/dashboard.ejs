@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="background-image">
+    <%- include('partials/navbar') %>
+
+    <div class="dashboard-container">
+        <h1 class="dashboard-title">Dashboard</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>My URL</th>
+                    <th>Short URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% urls.forEach(function(url) { %>
+                <tr>
+                    <td><a href="<%= url.originalUrl %>" target="_blank"><%= url.originalUrl %></a></td>
+                    <td><a href="<%= url.shortUrl %>" target="_blank"><%= url.shortUrl %></a></td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
